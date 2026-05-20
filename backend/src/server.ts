@@ -14,9 +14,16 @@ dotenv.config();
 
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      'https://your-vercel-frontend-url.vercel.app'
+    ],
+    credentials: true,
+  }),
+);
 
 app.use(
   express.json({
