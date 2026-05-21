@@ -65,7 +65,7 @@ export default function DealForm({
           <input
             type="number"
             name="dealSize"
-            placeholder="Deal Size ($)"
+            placeholder="Deal Size"
             value={formData.dealSize}
             onChange={handleChange}
             className="border rounded-xl px-4 py-3"
@@ -194,103 +194,3 @@ export default function DealForm({
     </form>
   );
 }
-
-
-
-// import {
-//   useState,
-//   ChangeEvent,
-//   FormEvent
-// } from 'react';
-
-// import type { DealData } from '../utils/types';
-
-// interface Props {
-//   onSubmit: (data: DealData) => void;
-// }
-
-// export default function DealForm({
-//   onSubmit
-// }: Props) {
-//   const [formData, setFormData] =
-//     useState<DealData>({
-//       dealSize: '',
-//       role: '',
-//       industry: '',
-//       stage: '',
-//       challenge: '',
-//       timelineMonths: '',
-//       closeDate: '',
-//       decisionMaker: '',
-//       stakeholders: '',
-//       budgetStatus: '',
-//       whatYouTried: '',
-//       competitor: '',
-//       additionalContext: ''
-//     });
-
-//   const handleChange = (
-//     e: ChangeEvent<
-//       HTMLInputElement |
-//       HTMLTextAreaElement |
-//       HTMLSelectElement
-//     >
-//   ) => {
-//     const { name, value } = e.target;
-
-//     setFormData(prev => ({
-//       ...prev,
-//       [name]: value
-//     }));
-//   };
-
-//   const handleSubmit = (
-//     e: FormEvent<HTMLFormElement>
-//   ) => {
-//     e.preventDefault();
-
-//     onSubmit(formData);
-//   };
-
-//   return (
-//     <form
-//       onSubmit={handleSubmit}
-//       className="space-y-6"
-//     >
-//       <div className="bg-white rounded-lg p-6 shadow-sm">
-//         <label className="block text-sm font-semibold mb-2">
-//           💰 Deal Size
-//         </label>
-
-//         <input
-//           type="number"
-//           name="dealSize"
-//           value={formData.dealSize}
-//           onChange={handleChange}
-//           className="w-full px-4 py-3 border rounded-lg"
-//         />
-//       </div>
-
-//       <div className="bg-white rounded-lg p-6 shadow-sm">
-//         <label className="block text-sm font-semibold mb-2">
-//           🎯 Main Challenge
-//         </label>
-
-//         <textarea
-//           name="challenge"
-//           value={formData.challenge}
-//           onChange={handleChange}
-//           rows={4}
-//           className="w-full px-4 py-3 border rounded-lg"
-//         />
-//       </div>
-
-//       <button
-//         type="submit"
-//         className="w-full bg-blue-600 text-white py-4 rounded-lg"
-//       >
-//         ✨ Analyze My Deal
-//       </button>
-//     </form>
-//   );
-// }
