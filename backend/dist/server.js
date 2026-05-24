@@ -1,17 +1,17 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 import { analyzeDeal } from "./api/analyze-deal.js";
-process.env.SUPABASE_URL;
-process.env.SUPABASE_KEY;
-process.env.ANTHROPIC_API_KEY;
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 app.use(cors({
     origin: [
-        'https://your-vercel-frontend-url.vercel.app'
+        'http://localhost:5173',
+        'https://pbn-deal-analyzer.vercel.app'
     ],
-    credentials: true,
+    credentials: true
 }));
 app.use(express.json({
     limit: "250kb"
