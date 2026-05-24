@@ -78,16 +78,104 @@ Maintain consistency with previous deal analysis.
 
   const response =
     await client.messages.create({
-      model:
-        "claude-haiku-4-5-20251001",
+      model: "claude-haiku-4-5-20251001",
 
-      max_tokens: 1500,
+      max_tokens: 2000,
 
       temperature: 0.4,
 
       system: SYSTEM_PROMPT,
 
-      messages: conversationHistory
+      messages: conversationHistory,
+
+      output_config: {
+        format: {
+          type: "json_schema",
+          schema: {
+            type: "object",
+            properties: {
+              dealScore: {
+                type: "number",
+                description: "Numerical score (0-100) for the deal quality",
+                minimum: 0,
+                maximum: 100
+              },
+              confidence: {
+                type: "string",
+                description: "Confidence level in the analysis",
+                enum: ["Low", "Medium", "High"]
+              },
+              executiveSummary: {
+                type: "string",
+                description: "High-level overview of the deal analysis"
+              },
+              reasoningSteps: {
+                type: "array",
+                description: "Step-by-step reasoning process",
+                items: {
+                  type: "string"
+                }
+              },
+              rootCauseAnalysis: {
+                type: "array",
+                description: "Root cause analysis for deal dynamics",
+                items: {
+                  type: "string"
+                }
+              },
+              topRisks: {
+                type: "array",
+                description: "Top risks identified in the deal",
+                items: {
+                  type: "string"
+                }
+              },
+              recommendedActions: {
+                type: "array",
+                description: "Recommended next steps",
+                items: {
+                  type: "object",
+                  properties: {
+                    action: {
+                      type: "string"
+                    },
+                    priority: {
+                      type: "string",
+                      enum: ["High", "Medium", "Low"]
+                    },
+                    timeline: {
+                      type: "string"
+                    }
+                  },
+                  required: ["action", "priority", "timeline"]
+                }
+              },
+              objectionHandling: {
+                type: "array",
+                description: "How to handle potential objections",
+                items: {
+                  type: "string"
+                }
+              },
+              timelineRecommendation: {
+                type: "string",
+                description: "Recommended timeline for deal progression"
+              }
+            },
+            required: [
+              "dealScore",
+              "confidence",
+              "executiveSummary",
+              "reasoningSteps",
+              "rootCauseAnalysis",
+              "topRisks",
+              "recommendedActions",
+              "objectionHandling",
+              "timelineRecommendation"
+            ]
+          }
+        }
+      }
     });
 
   const textBlock =
