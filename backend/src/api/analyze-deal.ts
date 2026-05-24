@@ -147,7 +147,8 @@ Maintain consistency with previous deal analysis.
                       type: "string"
                     }
                   },
-                  required: ["action", "priority", "timeline"]
+                  required: ["action", "priority", "timeline"],
+                  additionalProperties: false
                 }
               },
               objectionHandling: {
@@ -172,7 +173,8 @@ Maintain consistency with previous deal analysis.
               "recommendedActions",
               "objectionHandling",
               "timelineRecommendation"
-            ]
+            ],
+            additionalProperties: false
           }
         }
       }
