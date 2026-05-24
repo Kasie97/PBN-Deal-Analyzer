@@ -10,7 +10,10 @@ import rateLimit from "express-rate-limit";
 
 import { analyzeDeal } from "./api/analyze-deal.js";
 
-dotenv.config();
+process.env.SUPABASE_URL
+process.env.SUPABASE_KEY
+process.env.ANTHROPIC_API_KEY
+
 
 const app = express();
 

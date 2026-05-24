@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
-import { analyzeDeal } from "../src/api/analyze-deal.js";
+import { analyzeDeal } from "../src/api/analyze-deal.ts";
 
 export default async function handler(
   req: VercelRequest,
