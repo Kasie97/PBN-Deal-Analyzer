@@ -79,7 +79,7 @@ Maintain consistency with previous deal analysis.
   const response =
     await client.messages.create({
       model:
-        "claude-3-7-sonnet-latest",
+        "claude-haiku-4-5-20251001",
 
       max_tokens: 1500,
 
