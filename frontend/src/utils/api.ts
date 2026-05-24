@@ -6,14 +6,14 @@ import type {
 } from './types';
 
 const api = axios.create({
-  baseURL: import.meta.env.PROD
-    ? '/api'
-    : 'http://localhost:3001/api',
+  baseURL:
+    import.meta.env.VITE_API_URL,
 
   timeout: 45000,
 
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type':
+      'application/json'
   }
 });
 

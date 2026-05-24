@@ -1,9 +1,9 @@
-{
-  "version": 2,
-  "functions": {
-    "api/analyze-deal.ts": {
-      "maxDuration": 60
-    }
-  }
-}
+// {
+//   "version": 2,
+//   "functions": {
+//     "api/analyze-deal.ts": {
+//       "maxDuration": 60
+//     }
+//   }
+// }
 
