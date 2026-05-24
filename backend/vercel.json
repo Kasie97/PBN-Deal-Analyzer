@@ -1,15 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/analyze-deal.ts",
-      "use": "@vercel/node"
+  "functions": {
+    "api/analyze-deal.ts": {
+      "maxDuration": 60
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/analyze-deal.ts"
-    }
-  ]
+  }
 }
+
