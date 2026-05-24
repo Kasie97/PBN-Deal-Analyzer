@@ -1,12 +1,18 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 import { analyzeDeal } from "./api/analyze-deal.js";
-dotenv.config();
+process.env.SUPABASE_URL;
+process.env.SUPABASE_KEY;
+process.env.ANTHROPIC_API_KEY;
 const app = express();
-const PORT = process.env.PORT || 3001;
-app.use(cors());
+const PORT = process.env.PORT || 10000;
+app.use(cors({
+    origin: [
+        'https://your-vercel-frontend-url.vercel.app'
+    ],
+    credentials: true,
+}));
 app.use(express.json({
     limit: "250kb"
 }));
