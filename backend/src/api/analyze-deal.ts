@@ -97,8 +97,6 @@ Maintain consistency with previous deal analysis.
               dealScore: {
                 type: "number",
                 description: "Numerical score (0-100) for the deal quality",
-                minimum: 0,
-                maximum: 100
               },
               confidence: {
                 type: "string",
